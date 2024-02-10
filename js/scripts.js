@@ -6,7 +6,7 @@ const randColor = document.querySelector(".randColor");
 const imageSelect = document.querySelector("#imageSelect");
 const images = document.querySelector("#images");
 const bodyPg = document.querySelector("body");
-
+const reset = document.querySelector(".reset");
 
 
 // function to change bg color   from user input and add student id
@@ -56,7 +56,7 @@ function changeRandomColor() {
 function addList() {
     // Tip: you might have to check length condition so that the list does not keep growing when clicked
     // Tip: use createElement and appendChild inside every for loop to add elements to select list from array 
-    const imageSrc = ["./img/img1.jpg", "./img/img2.jpg", "./img/img3.jpg", "./img/img4.jpg", "./img/img5.jpg"];
+    const imageSrc = ["./img/image_1.webp", "./img/image_2.webp", "./img/image_3.webp", "./img/image_4.webp", "./img/image_5.webp"];
 
     if (imageSelect.length !== 6) {
         let count = 1;
@@ -78,6 +78,11 @@ function changeImage() {
     images.setAttribute("alt", imageSelect.value.slice(6, 10).toUpperCase());
 }
 
+// function to reset
+function reStart() {
+    location.reload();
+}
+
 // event listeners for on click event of buttons and select
 custColor.addEventListener('click', changeCustomColor);
 randColor.addEventListener('click', changeRandomColor);
@@ -85,4 +90,7 @@ imageSelect.addEventListener('click', addList);
 
 // event listeners for on change event of select
 imageSelect.addEventListener('change', changeImage);
+
+// Reset the page 
+reset.addEventListener('click', reStart);
 
